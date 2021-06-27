@@ -63,6 +63,8 @@ public class TrikiUI extends JFrame implements ActionListener
 	private JPanel panel_3;
 	private JLabel lblPartidasFaltantes;
 	private JTextField partidasFaltantes;
+	private JTextField turnoJugador1;
+	private JTextField TurnoJugador2;
 	
 	/**
 	 * Create the frame.
@@ -280,8 +282,21 @@ public class TrikiUI extends JFrame implements ActionListener
 		nombreJugador2.setText(trikiLogic.getJugador2().getName());
 		ganadasJugador1.setText(trikiLogic.getJugador1().getGanadas() + "");
 		perdidasJugador1.setText(trikiLogic.getJugador1().getPerdidas()+"");
+		
+		turnoJugador1 = new JTextField();
+		turnoJugador1.setText("Tu turno");
+		turnoJugador1.setHorizontalAlignment(SwingConstants.CENTER);
+		turnoJugador1.setEditable(false);
+		PanelJugador1.add(turnoJugador1);
+		turnoJugador1.setColumns(10);
 		perdidasJugador2.setText(trikiLogic.getJugador2().getPerdidas()+"");
 		ganadasJugador2.setText(trikiLogic.getJugador2().getGanadas() + "");
+		
+		TurnoJugador2 = new JTextField();
+		TurnoJugador2.setHorizontalAlignment(SwingConstants.CENTER);
+		TurnoJugador2.setEditable(false);
+		PanelJugador2.add(TurnoJugador2);
+		TurnoJugador2.setColumns(10);
 		empatadasField.setText(0 + "");
 		jugadasField.setText(0+"");
 		partidasFaltantes.setText(trikiLogic.getCantidadPartidas()+"");
@@ -331,6 +346,19 @@ public class TrikiUI extends JFrame implements ActionListener
 		perdidasJugador2.setText(trikiLogic.getJugador2().getPerdidas()+"");
 		ganadasJugador2.setText(trikiLogic.getJugador2().getGanadas() + "");
 		JOptionPane.showMessageDialog(this, "El juego empieza, el turno es del jugador "+ trikiLogic.getTurno());
+	}
+	
+	public void refreshLabelTurnos(int turno) {
+		if(turno == 1) {
+			System.out.println("Entra1");
+			turnoJugador1.setText("Es tu turno");
+			TurnoJugador2.setText("");
+		}
+		else if(turno == 2) {
+			System.out.println("Entra2");
+			TurnoJugador2.setText("Es tu turno");
+			turnoJugador1.setText("");
+		}
 	}
 	
 	/**
@@ -423,6 +451,7 @@ public class TrikiUI extends JFrame implements ActionListener
 					}
 				}
 				else {
+					this.refreshLabelTurnos(this.trikiLogic.getTurno());
 					JOptionPane.showMessageDialog(this, "Es el turno del jugador " + trikiLogic.getTurno());
 				}
 			}
@@ -493,6 +522,7 @@ public class TrikiUI extends JFrame implements ActionListener
 					}
 				}
 				else {
+					this.refreshLabelTurnos(this.trikiLogic.getTurno());
 					JOptionPane.showMessageDialog(this, "Es el turno del jugador " + trikiLogic.getTurno());
 				}
 				
@@ -561,6 +591,7 @@ public class TrikiUI extends JFrame implements ActionListener
 					}
 				}
 				else {
+					this.refreshLabelTurnos(this.trikiLogic.getTurno());
 					JOptionPane.showMessageDialog(this, "Es el turno del jugador " + trikiLogic.getTurno());
 				}
 			}
@@ -631,6 +662,7 @@ public class TrikiUI extends JFrame implements ActionListener
 					}
 				}
 				else {
+					this.refreshLabelTurnos(this.trikiLogic.getTurno());
 					JOptionPane.showMessageDialog(this, "Es el turno del jugador " + trikiLogic.getTurno());
 				}
 			}
@@ -701,6 +733,7 @@ public class TrikiUI extends JFrame implements ActionListener
 					}
 				}
 				else {
+					this.refreshLabelTurnos(this.trikiLogic.getTurno());
 					JOptionPane.showMessageDialog(this, "Es el turno del jugador " + trikiLogic.getTurno());
 				}
 			}
@@ -771,6 +804,7 @@ public class TrikiUI extends JFrame implements ActionListener
 					}
 				}
 				else {
+					this.refreshLabelTurnos(this.trikiLogic.getTurno());
 					JOptionPane.showMessageDialog(this, "Es el turno del jugador " + trikiLogic.getTurno());
 				}
 			}
@@ -841,6 +875,7 @@ public class TrikiUI extends JFrame implements ActionListener
 					}
 				}
 				else {
+					this.refreshLabelTurnos(this.trikiLogic.getTurno());
 					JOptionPane.showMessageDialog(this, "Es el turno del jugador " + trikiLogic.getTurno());
 				}
 			}
@@ -911,6 +946,7 @@ public class TrikiUI extends JFrame implements ActionListener
 					}
 				}
 				else {
+					this.refreshLabelTurnos(this.trikiLogic.getTurno());
 					JOptionPane.showMessageDialog(this, "Es el turno del jugador " + trikiLogic.getTurno());
 				}
 			}
@@ -981,6 +1017,7 @@ public class TrikiUI extends JFrame implements ActionListener
 					}
 				}
 				else {
+					this.refreshLabelTurnos(this.trikiLogic.getTurno());
 					JOptionPane.showMessageDialog(this, "Es el turno del jugador " + trikiLogic.getTurno());
 				}
 			}
